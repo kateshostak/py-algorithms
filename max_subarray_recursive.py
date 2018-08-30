@@ -3,7 +3,6 @@ def max_left_sum(middle, start, arr):
     temp_sum = 0
     max_i = start
     for i in range(middle, start - 1, -1):
-        print(arr[i])
         temp_sum += arr[i]
         if temp_sum > max_sum:
             max_sum = temp_sum
@@ -16,7 +15,6 @@ def max_right_sum(middle, end, arr):
     temp_sum = 0
     max_i = middle
     for i in range(middle, end + 1):
-        print(arr[i])
         temp_sum += arr[i]
         if temp_sum > max_sum:
             max_sum = temp_sum
