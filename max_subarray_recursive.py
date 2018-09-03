@@ -46,12 +46,20 @@ def find_max_subarray(start, end, arr):
         return cross_start, cross_end, cross_sum
 
 
-def main():
-    arr = [13, -3, -25, 20, -3, -16, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+def max_subarray(arr):
     start = 0
-    end = len(arr)
-    print(find_max_subarray(start, end - 1, arr))
+    end  = len(arr)
+    return find_max_subarray(start, end - 1, arr)
+
+# def main():
+#     # arr = [-2, -1, 4, -1, -2, 5, 1, -3]
+#     # arr = [13, -3, -25, 20, -3, -16, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+#     arr = [-2, -1, -3, -4, -1, -2, -1, -5, -4]
+#     start = 0
+#     end = len(arr)
+
+#     print(find_max_subarray(start, end - 1, arr))
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()

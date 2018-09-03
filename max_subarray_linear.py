@@ -1,7 +1,6 @@
 def max_subarray(arr):
     max_ending_here = max_so_far = arr[0]
     for elem in arr[1:]:
-        print(f'max_ending_here::{max_ending_here}::max_so_far::{max_so_far}')
         max_ending_here = max(elem, max_ending_here + elem)
         max_so_far = max(max_so_far, max_ending_here)
     return max_so_far
