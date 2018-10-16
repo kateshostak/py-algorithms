@@ -28,7 +28,7 @@ class Heap():
         return str(self.heap)
 
     def parent(self, i):
-        return math.floor(i/2) - 1
+        return math.ceil(i/2) - 1
 
     def left(self, i):
         return 2*(i+1) - 1
