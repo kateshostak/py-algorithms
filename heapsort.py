@@ -1,5 +1,6 @@
 import heap
 
+
 def heapsort(my_arr):
     sorted_arr = list()
     my_heap = heap.Heap(my_arr)
@@ -17,6 +18,7 @@ def heapsort(my_arr):
         sorted_arr.append(my_arr[0])
 
     return sorted_arr[::-1]
+
 
 def main():
     sorted_arr = list()

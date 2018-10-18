@@ -1,9 +1,9 @@
 import math
 
+
 class Heap():
 
     def __init__(self, arr):
-        # self.length = len(arr)
         self.heap = self.make_heap(arr)
 
     def __iter__(self):
@@ -56,14 +56,13 @@ class Heap():
             else:
                 largest = i
 
-            if  right < length and arr[right] > arr[largest]:
+            if right < length and arr[right] > arr[largest]:
                 largest = right
 
             arr[i], arr[largest] = arr[largest], arr[i]
 
             if largest != i:
                 self.max_heapify(arr, largest)
-
 
     def print_heap(self):
         print(self.heap)
