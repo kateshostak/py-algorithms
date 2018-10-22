@@ -35,6 +35,11 @@ class PriorityQueue():
         self.heap.heap.append(value)
         self.heap_increase_key(len(self.heap.heap) - 1, value)
 
+    def delete_key(self, i):
+        self.heap[i], self.heap[-1] = self.heap[-1], self.heap[i]
+        self.heap.pop()
+        self.heap.max_heapify(self.heap, i)
+
     def print_queue(self):
         print(self.heap)
 
@@ -47,6 +52,8 @@ def main():
     my_queue.heap_increase_key(8, 16)
     my_queue.print_queue()
     my_queue.max_heap_insert(100)
+    my_queue.print_queue()
+    my_queue.delete_key(3)
     my_queue.print_queue()
 
 if __name__ == '__main__':
