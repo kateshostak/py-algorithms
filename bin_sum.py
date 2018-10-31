@@ -1,33 +1,36 @@
-import generate_random_arr
+import random
+
+
+def convert_to_list(n, align):
+    return list(map(int, '{:0>11}'.format(n)))
+
+
+def convert_to_bin(a, b):
+    a_bin = f'{a:b}'
+    b_bin = f'{b:b}'
+    align = max(len(a_bin), len(b_bin)) + 1
+    return convert_to_list(a_bin, align), convert_to_list(b_bin, align)
 
 
 def bin_sum(a, b):
-    c = list()
+    a_bin, b_bin = convert_to_bin(a, b)
+    c_bin = list()
     carry = 0
-    for i in range(len(a) - 1, -1, -1):
-        c_i = (carry + a[i] + b[i]) % 2
-        c.append(c_i)
-        if a[i] == 0:
-            carry = b[i] and carry
+    for i in range(len(a_bin) - 1, -1, -1):
+        c_i = (carry + a_bin[i] + b_bin[i]) % 2
+        c_bin.append(c_i)
+        if a_bin[i] == 0:
+            carry = b_bin[i] and carry
         else:
-            carry = b[i] or carry
-    c.append(carry)
-    return c[-1::-1]
+            carry = b_bin[i] or carry
+    return c_bin[-1::-1]
 
 
 def main():
-    a = generate_random_arr.generate_arr(3, 3, 0, 1)
-    b = generate_random_arr.generate_arr(3, 3, 0, 1)
-    str_a = ''.join(map(str,a))
-    str_b = ''.join(map(str,b))
-    int_a = int(str_a, base=2)
-    int_b = int(str_b, base=2)
-    int_sum = int_a + int_b
-    print(int_a, int_b, int_sum)
-    c = bin_sum(a,b)
-    print(c)
+    a = random.randint(0, 1000)
+    b = random.randint(0, 100)
     c = ''.join(map(str, bin_sum(a, b)))
-    print(int(c, base=2))
+    print(c)
 
 if __name__ == '__main__':
     main()
