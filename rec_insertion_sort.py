@@ -1,5 +1,4 @@
 def insertion_sort(arr, end):
-    print(end)
     if end == 0:
         return arr[end]
 
