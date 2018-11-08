@@ -10,6 +10,16 @@ def binary_search(array, key, start, end):
 
     split = (end + start)//2
     if key < array[split]:
-        binary_search(array, key, start, split)
+        res = binary_search(array, key, start, split)
     else:
-        binary_search(array, key, split, end)
+        res = binary_search(array, key, split, end)
+
+    return res
+
+
+def main():
+    arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    print(binary_search(arr, 0, 0, len(arr) - 1))
+
+if __name__ == '__main__':
+    main()
