@@ -1,24 +1,19 @@
-def fib_decorator(func, n):
-    def fib_saver():
-        fib_seq = list()
-        a = func(n)
-        fib_seq.append(a)
-        return fib_seq
-
-    return fib_saver
-
 
 def fib(n):
     if n <= 1:
         return n
-
-    return fib(n - 1) + fib(n - 2)
+    fib_seq = list()
+    fib_seq.append(0)
+    fib_seq.append(1)
+    for i in range(2, n + 1):
+        a = fib_seq[i-1] + fib_seq[i-2]
+        fib_seq.append(a)
+    return fib_seq[-1]
 
 
 def main():
     n = int(input().strip())
-    res = fib_decorator(fib, n)
-    print(res())
+    print(fib(n))
 
 if __name__ == '__main__':
      main()
